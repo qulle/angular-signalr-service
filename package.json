@@ -15,7 +15,7 @@
             "eslint",
             "prettier --write"
         ],
-        "**/*.{html,scss,css,json}": [
+        "**/*.{html,scss,css,json,xml}": [
             "prettier --write"
         ]
     },
