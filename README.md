@@ -73,11 +73,11 @@ export class SignalRService {
     private readonly reconnectTimeout: number;
 
     // Internal SignalR state values
-    private static readonly ConnectionState: Map<ConnectionStages, string> = new Map([
-        [ConnectionStages.Connecting, 'connecting'],
-        [ConnectionStages.Connected, 'connected'],
-        [ConnectionStages.Reconnecting, 'reconnecting'],
-        [ConnectionStages.Disconnected, 'disconnected'],
+    private static readonly ConnectionState: Map<ConnectionState, string> = new Map([
+        [ConnectionState.Connecting, 'connecting'],
+        [ConnectionState.Connected, 'connected'],
+        [ConnectionState.Reconnecting, 'reconnecting'],
+        [ConnectionState.Disconnected, 'disconnected'],
     ]);
 
     private $: any;
@@ -140,7 +140,7 @@ export class SignalRService {
     }
 
     isConnected(): boolean {
-        return this.connection && this.connection.state === ConnectionStages.Connected;
+        return this.connection && this.connection.state === ConnectionState.Connected;
     }
 
     getConnectionId(): string {
@@ -260,7 +260,7 @@ export class SignalRService {
 
 The service above uses the following types and data models.
 ```typescript
-export enum ConnectionStages {
+export enum ConnectionState {
     Connecting = 0,
     Connected = 1,
     Reconnecting = 2,
